@@ -1,5 +1,8 @@
 def div(dividend, divisor):
     count = 0
+    if(divisor==0):
+        print("Cannot divide the number")
+        break
     for i in range(divisor):
         if(divisor<=dividend):
             dividend = dividend - divisor
