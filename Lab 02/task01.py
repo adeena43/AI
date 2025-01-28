@@ -1,48 +1,32 @@
 import random
 
-def initialize_system():
-    components = ["A", "B", "C", "D", "E", "F", "G", "H", "I"]
-    system_state = {component: random.choice(["Safe", "Vulnerable"]) for component in components}
-    return system_state
+class Evironment:
+    def __init__(self):
+        self.criticalComponent = [random.choice([0,1]) for _ in range(9)]
+        print(f"System's initial state: {self.criticalComponent} \n")
 
-def scan_system(system_state):
-    vulnerable_components = []
-    print("\nSystem Scan Results:")
-    for component, state in system_state.items():
-        if state == "Vulnerable":
-            print(f"WARNING: Component {component} is vulnerable.")
-            vulnerable_components.append(component)
-        else:
-            print(f"SUCCESS: Component {component} is safe.")
-    return vulnerable_components
+class Agent:
+    def __init__(self):
+        self.patch = []
 
-def patch_vulnerabilities(system_state, vulnerable_components):
-    print("\nPatching Vulnerabilities:")
-    for component in vulnerable_components:
-        system_state[component] = "Safe"
-        print(f"Component {component} has been patched and is now safe.")
-    return system_state
+    def systemScan(self, criticalComponent):
+        for i in range(9):
+            if (criticalComponent[i] == 0):
+                print("Warning \n")
+                self.patch.append(i)
+            else:
+                print("Logged \n")
 
-def display_system_state(system_state, title):
-    print(f"\n{title}")
-    for component, state in system_state.items():
-        print(f"Component {component}: {state}")
+    def patchingVulnerabilities(self, criticalComponent):
+        for i in range(len(self.patch)):
+            criticalComponent[self.patch[i]] = 1
 
-def main():
-    print("Cybersecurity System Simulation\n" + "=" * 35)
+    def finalSystemCheck(self, criticalComponent):
+        print(f"Final state of the system: {criticalComponent}")
 
-    system_state = initialize_system()
-    display_system_state(system_state, "Initial System State")
+environent = Evironment()
+agent1 = Agent()
 
-    vulnerable_components = scan_system(system_state)
-
-    if vulnerable_components:
-        system_state = patch_vulnerabilities(system_state, vulnerable_components)
-    else:
-        print("\nNo vulnerabilities detected. No patching required.")
-
-    display_system_state(system_state, "Final System State")
-
-if __name__ == "__main__":
-    main()
-
+agent1.systemScan(environent.criticalComponent)
+agent1.patchingVulnerabilities(environent.criticalComponent)
+agent1.finalSystemCheck(environent.criticalComponent)
