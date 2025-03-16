@@ -4,50 +4,47 @@ maze = [
     [0, 1, 1]
 ]
 
-directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+directions = [(0, 1), (1, 0)]
 
-def convert_grid(maze):
+def create_graph(maze):
+    graph = {}
     rows = len(maze)
     cols = len(maze[0])
-    graph = {}
 
     for i in range(rows):
         for j in range(cols):
             if maze[i][j] == 1:
                 neighbors = []
                 for dx, dy in directions:
-                    nx, ny = dx + i, dy + j
+                    nx, ny = i +dx, j+ dy
                     if 0 <= nx < rows and 0 <= ny < cols and maze[nx][ny] == 1:
                         neighbors.append((nx, ny))
-
                 graph[(i, j)] = neighbors
 
     return graph
+graph = create_graph(maze)
+print(graph)
 
-def dfs(graph, start, goal):
-    stack = [start]
-    visited = set()
+def bfs(graph, start, goal):
+    visited = []
+    queue = []
 
-    while stack:
-        node = stack.pop()
+    visited.append(start)
+    queue.append(start)
 
-        if node in visited:
-            continue  # Skip if already visited
-
-        print(node, end=" ")  # Print when visiting
-        visited.add(node)
-
+    while queue:
+        node = queue.pop()
+        print(node, end = " ")
         if node == goal:
-            print("\nGoal reached!")
-            return  # Exit once goal is found
+            print("\nGoal reached")
+        
+        for neighbors in graph.get(node, []):
+            if neighbors not in visited:
+                visited.append(neighbors)
+                queue.append(neighbors)
 
-        # Push unvisited neighbors onto stack (in reverse order for correct DFS)
-        for neighbor in reversed(graph.get(node, [])):
-            if neighbor not in visited:
-                stack.append(neighbor)
+snode = (0, 0)
+gnode = (2, 2)
 
-    print("\nGoal not found")
-    return 
-
-graph = convert_grid(maze)
-dfs(graph, (0, 0), (2, 2))
+print("\nFollowing is the Breadth-First Search (BFS): ")
+bfs(graph, snode, gnode)
