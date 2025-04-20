@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This network was created in GeNIe Academic, which can be used for academic teaching and research purposes only -->
+<smile version="1.0" id="Network4" numsamples="10000" discsamples="10000">
+	<nodes>
+		<cpt id="Node5">
+			<state id="High" />
+			<state id="Low" />
+			<probabilities>0.7 0.3</probabilities>
+		</cpt>
+		<cpt id="Node6">
+			<state id="Sufficient" />
+			<state id="Insufficient" />
+			<probabilities>0.6 0.4</probabilities>
+		</cpt>
+		<cpt id="Node7">
+			<state id="Easy" />
+			<state id="Hard" />
+			<probabilities>0.6 0.4</probabilities>
+		</cpt>
+		<cpt id="Node8">
+			<state id="A" />
+			<state id="B" />
+			<state id="C" />
+			<parents>Node5 Node6 Node7</parents>
+			<probabilities>0.8 0.15 0.05 0.6 0.3 0.1 0.6 0.3 0.1 0.4 0.4 0.2 0.5 0.35 0.15 0.3 0.4 0.3 0.3 0.4 0.3 0.1 0.3 0.6</probabilities>
+		</cpt>
+		<cpt id="Node9">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Node8</parents>
+			<probabilities>0.95 0.05 0.8 0.2 0.5 0.5</probabilities>
+		</cpt>
+	</nodes>
+	<extensions>
+		<genie version="1.0" app="GeNIe 5.0.4830.0 ACADEMIC" name="Network4">
+			<node id="Node5">
+				<name>Intelligence</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>134 115 223 190</position>
+			</node>
+			<node id="Node6">
+				<name>StudyHours</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>327 124 401 191</position>
+			</node>
+			<node id="Node7">
+				<name>Difficulty</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>538 132 619 205</position>
+			</node>
+			<node id="Node8">
+				<name>Grade</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>345 329 427 394</position>
+			</node>
+			<node id="Node9">
+				<name>Pass</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>349 503 435 579</position>
+			</node>
+		</genie>
+	</extensions>
+</smile>
