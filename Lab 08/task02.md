@@ -85,3 +85,5 @@ query2 = infer.query(
 print("\nP(Intelligence = High | Pass=Yes):\n", query2)
 ```
 ![image](https://github.com/user-attachments/assets/cd75abc3-dad6-4479-8ff0-360ad76cffe2)
+![image](https://github.com/user-attachments/assets/8433fc90-874f-4179-9e21-cef7f841661f)
+
