@@ -1,3 +1,4 @@
+```py
 from pgmpy.models import DiscreteBayesianNetwork
 from pgmpy.factors.discrete import TabularCPD
 from pgmpy.inference import VariableElimination
@@ -82,3 +83,5 @@ query2 = infer.query(
     evidence={'Pass': 'Yes'}
 )
 print("\nP(Intelligence = High | Pass=Yes):\n", query2)
+```
+![image](https://github.com/user-attachments/assets/cd75abc3-dad6-4479-8ff0-360ad76cffe2)
