@@ -1,3 +1,4 @@
+```py
 from pgmpy.models import DiscreteBayesianNetwork
 from pgmpy.factors.discrete import TabularCPD
 from pgmpy.inference import VariableElimination
@@ -104,3 +105,6 @@ result3 = infer.query(
     evidence={'Disease': 'Flu'}
 )
 print(result3)
+```
+![image](https://github.com/user-attachments/assets/e77d28da-630d-482c-be5b-8b0f198d782b)
+![image](https://github.com/user-attachments/assets/7c3c8c05-56b5-4a3d-aae9-50a80181fe4b)
